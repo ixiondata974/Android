@@ -27,10 +27,22 @@ public class profil extends AppCompatActivity {
         taille = (EditText)findViewById(R.id.taille);
         age = (EditText)findViewById(R.id.age);
 
+        imc = (TextView)findViewById(R.id.imc);
+
         calcIMC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //int poi = poid.get
+                String vPoid = poid.getText().toString();
+                String vTaille = taille.getText().toString();
+                String vAge = age.getText().toString();
+
+                int poi = Integer.parseInt(vPoid);
+                int taill = Integer.parseInt(vTaille);
+                int ag = Integer.parseInt(vAge);
+
+                float IMC = poi/(taill*taill);
+
+                imc.setText(String.valueOf(IMC));
             }
         });
     }
