@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.appvehicule">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <uses-feature android:name="android.hardware.Camera.autofocus" />
+    <uses-feature android:name="android.hardware.camera2" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".Onglet.List_onglets"
+            android:label="@string/title_activity_list_onglets"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".Liste_onglet.List_onglets" />
+        <activity
+            android:name=".Liste_avec_onglet.List_onglet"
+            android:label="@string/title_activity_list_onglet"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ListeEntretien.Liste_Entretien"
+            android:label="@string/title_activity_liste__entretien"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".formulaires.FormCG" />
+        <activity android:name=".formulaires.formulaire" />
+        <activity android:name=".entretien" />
+        <activity android:name=".CarteGrise" />
+        <activity android:name=".CaracterVehic" />
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="https" />
+            </intent-filter>
+        </activity>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/path_image" />
+        </provider>
+
+        <receiver android:name=".Broadcast.scannerReicever" />
+
+        <meta-data
+            android:name="com.google.android.gms.vision.DEPENDENCIES"
+            android:value="ocr" />
+    </application>
+
+</manifest>

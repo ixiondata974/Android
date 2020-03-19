@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">AppVehicule</string>
+    <string name="textview">TextView</string>
+    <string name="title_activity_liste__entretien">Liste_Entretien</string>
+    <string name="tab_text_1">Rendez-vous</string>
+    <string name="tab_text_2">Essence</string>
+    <string name="tab_text_3">Tab 3</string>
+    <string name="title_activity_liste_entretien">Liste_entretien</string>
+    <string name="title_activity_list_onglet">List_onglet</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_list_onglets">List_onglets</string>
+</resources>
