@@ -67,11 +67,9 @@ public class profil extends AppCompatActivity {
 
     /*private void graphique(){
 
-
         Intent chartDroidIntent = new Intent(Intent.ACTION_VIEW, ChartDroidDataProvider.PROVIDER_URI);
         chartDroidIntent.putExtra(Intent.EXTRA_TITLE, "Chart droid");
         chartDroidIntent.addCategory("com.googlecode.chartdroid.intent.category.PIE_CHART");
         startActivity(chartDroidIntent);
-        
     }*/
 }
