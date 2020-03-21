@@ -72,5 +72,6 @@ public class profil extends AppCompatActivity {
         chartDroidIntent.putExtra(Intent.EXTRA_TITLE, "Chart droid");
         chartDroidIntent.addCategory("com.googlecode.chartdroid.intent.category.PIE_CHART");
         startActivity(chartDroidIntent);
+        
     }*/
 }
