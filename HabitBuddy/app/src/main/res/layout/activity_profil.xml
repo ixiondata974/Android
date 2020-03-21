@@ -89,9 +89,8 @@
 
     <TextView
         android:id="@+id/imc"
-        android:layout_width="128dp"
-        android:layout_height="39dp"
-        android:text="TextView"
+        android:layout_width="203dp"
+        android:layout_height="73dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.576"
         app:layout_constraintLeft_toLeftOf="parent"
