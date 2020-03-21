@@ -32,18 +32,26 @@ public class profil extends AppCompatActivity {
         calcIMC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String vPoid = poid.getText().toString();
-                String vTaille = taille.getText().toString();
-                String vAge = age.getText().toString();
-
-                int poi = Integer.parseInt(vPoid);
-                int taill = Integer.parseInt(vTaille);
-                int ag = Integer.parseInt(vAge);
-
-                float IMC = poi/(taill*taill);
-
-                imc.setText(String.valueOf(IMC));
+                calculeIMC();
             }
         });
+    }
+
+    private void calculeIMC(){
+        String vPoid = poid.getText().toString();
+        String vTaille = taille.getText().toString();
+        //String vAge = age.getText().toString();
+
+        int poi = Integer.parseInt(vPoid);
+        int taill = Integer.parseInt(vTaille);
+        //int ag = Integer.parseInt(vAge);
+
+        try {
+            float IMC = (poi * 10000)/(taill * taill);
+
+            imc.setText(String.valueOf(IMC));
+        }catch (Exception e){
+            imc.setText("Error : "+e);
+        }
     }
 }
