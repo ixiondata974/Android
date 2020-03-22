@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ListeDesActivites">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="229dp"
+        android:layout_height="77dp"
+        android:textColor="@android:color/black"
+        android:text="Quelles activités physiques pratiques-tu par semaine ?"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.075" />
+
+    <LinearLayout
+        android:layout_width="320dp"
+        android:layout_height="281dp"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="45dp"
+        tools:layout_editor_absoluteY="179dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <CheckBox
+            android:id="@+id/aucune"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Aucune" />
+
+        <CheckBox
+            android:id="@+id/marche"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Marche" />
+
+        <CheckBox
+            android:id="@+id/course"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Course" />
+
+        <CheckBox
+            android:id="@+id/yoga"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Yoga / gym" />
+
+        <CheckBox
+            android:id="@+id/boxe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Boxe" />
+
+        <CheckBox
+            android:id="@+id/tennis"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tennis" />
+
+        <CheckBox
+            android:id="@+id/parcours"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Parcours" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Suivant"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.841" />
+</androidx.constraintlayout.widget.ConstraintLayout>

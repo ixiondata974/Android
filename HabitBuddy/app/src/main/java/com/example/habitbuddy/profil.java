@@ -30,12 +30,24 @@ public class profil extends AppCompatActivity {
 
         imc = (TextView)findViewById(R.id.imc);
 
+
+
         calcIMC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                calculeIMC();
+                try {
+                    calculeIMC();
+                }catch (Exception e){
+                    imc.setText("Il n'a pas de valeur");
+                }
+                versFormulaire();
             }
         });
+    }
+
+    private void versFormulaire(){
+        final Intent intent = new Intent(this, ListeDesActivites.class);
+        startActivity(intent);
     }
 
     private void calculeIMC(){
@@ -64,12 +76,4 @@ public class profil extends AppCompatActivity {
             imc.setText("Error : "+e);
         }
     }
-
-    /*private void graphique(){
-
-        Intent chartDroidIntent = new Intent(Intent.ACTION_VIEW, ChartDroidDataProvider.PROVIDER_URI);
-        chartDroidIntent.putExtra(Intent.EXTRA_TITLE, "Chart droid");
-        chartDroidIntent.addCategory("com.googlecode.chartdroid.intent.category.PIE_CHART");
-        startActivity(chartDroidIntent);
-    }*/
 }
