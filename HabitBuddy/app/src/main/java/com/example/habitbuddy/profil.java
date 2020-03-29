@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -30,7 +31,7 @@ public class profil extends AppCompatActivity {
 
         imc = (TextView)findViewById(R.id.imc);
 
-
+        leJSON();
 
         calcIMC.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,6 +46,16 @@ public class profil extends AppCompatActivity {
         });
     }
 
+    private void leJSON(){
+        try {
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+            String ret = RequestHandler.sendGet("http://192.168.1.36/APItest.php");
+            imc.setText(ret);
+        }catch (Exception e){
+            imc.setText("Erreur : " + e);
+        }
+    }
     private void versFormulaire(){
         final Intent intent = new Intent(this, ListeDesActivites.class);
         startActivity(intent);
