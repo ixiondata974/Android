@@ -10,6 +10,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 public class profil extends AppCompatActivity {
 
     private Button calcIMC;
@@ -41,7 +44,7 @@ public class profil extends AppCompatActivity {
                 }catch (Exception e){
                     imc.setText("Il n'a pas de valeur");
                 }
-                versFormulaire();
+                //versFormulaire();
             }
         });
     }
@@ -73,6 +76,16 @@ public class profil extends AppCompatActivity {
         try {
             float IMC = (poi * 10000)/(taill * taill);
 
+            JSONObject parseJSon = new JSONObject();
+            parseJSon.put("id", 1);
+            parseJSon.put("age", 21);
+            parseJSon.put("poid", poi);
+            parseJSon.put("taille", taill);
+            parseJSon.put("imc", IMC);
+
+            JSONObject sendJSON = new JSONObject();
+            sendJSON.put("inscription", parseJSon);
+
             String votreIMC;
             if (IMC<18){
                 votreIMC = "Vous êtes en sous poid";
@@ -82,7 +95,9 @@ public class profil extends AppCompatActivity {
                 votreIMC = "Votre poid est normale";
             }
 
-            imc.setText("Votre IMC est : "+IMC+"\n"+votreIMC);
+            imc.setText("Votre IMC est : "+votreIMC);
+            /*RequestHandler reqHand = new RequestHandler();
+            String j = reqHand.sendPost("http://192.168.1.36/APItest.php", sendJSON);*/
         }catch (Exception e){
             imc.setText("Error : "+e);
         }
