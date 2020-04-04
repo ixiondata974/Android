@@ -103,6 +103,8 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="nb Heure"
+            android:textColor="@android:color/black"
+            android:textAlignment="center"
             tools:layout_editor_absoluteX="157dp"
             tools:layout_editor_absoluteY="137dp" />
 
@@ -113,6 +115,7 @@
             android:layout_weight="1"
             android:text="nb km"
             android:textAlignment="center"
+            android:textColor="@android:color/black"
             tools:layout_editor_absoluteX="281dp"
             tools:layout_editor_absoluteY="65dp" />
 
