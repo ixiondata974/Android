@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import org.json.JSONObject;
+
 public class profil extends AppCompatActivity {
 
     private Button calcIMC;
@@ -41,7 +43,7 @@ public class profil extends AppCompatActivity {
                 }catch (Exception e){
                     imc.setText("Il n'a pas de valeur");
                 }
-                versFormulaire();
+                //versFormulaire();
             }
         });
     }
@@ -64,14 +66,24 @@ public class profil extends AppCompatActivity {
     private void calculeIMC(){
         String vPoid = poid.getText().toString();
         String vTaille = taille.getText().toString();
-        //String vAge = age.getText().toString();
+        String vAge = age.getText().toString();
 
         int poi = Integer.parseInt(vPoid);
         int taill = Integer.parseInt(vTaille);
-        //int ag = Integer.parseInt(vAge);
+        int ag = Integer.parseInt(vAge);
 
         try {
             float IMC = (poi * 10000)/(taill * taill);
+
+            JSONObject parseJSon = new JSONObject();
+            parseJSon.put("id", 1);
+            parseJSon.put("age", ag);
+            parseJSon.put("poid", poi);
+            parseJSon.put("taille", taill);
+            parseJSon.put("imc", IMC);
+
+            JSONObject sendJSON = new JSONObject();
+            sendJSON.put("unProfil", parseJSon);
 
             String votreIMC;
             if (IMC<18){
@@ -83,6 +95,8 @@ public class profil extends AppCompatActivity {
             }
 
             imc.setText("Votre IMC est : "+IMC+"\n"+votreIMC);
+
+            new SendDeviceDetails().execute("http://192.168.1.36/MVC/controller.php",sendJSON.toString());
         }catch (Exception e){
             imc.setText("Error : "+e);
         }
