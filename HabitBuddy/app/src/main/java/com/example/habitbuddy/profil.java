@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -94,9 +95,10 @@ public class profil extends AppCompatActivity {
                 votreIMC = "Votre poid est normale";
             }
 
-            imc.setText("Votre IMC est : "+IMC+"\n"+votreIMC);
+            imc.setText(sendJSON.toString());
 
             new SendDeviceDetails().execute("http://192.168.1.36/MVC/controller.php",sendJSON.toString());
+            Log.d("e","réussi");
         }catch (Exception e){
             imc.setText("Error : "+e);
         }
