@@ -83,9 +83,6 @@ public class profil extends AppCompatActivity {
             parseJSon.put("taille", taill);
             parseJSon.put("imc", IMC);
 
-            JSONObject sendJSON = new JSONObject();
-            sendJSON.put("unProfil", parseJSon);
-
             String votreIMC;
             if (IMC<18){
                 votreIMC = "Vous êtes en sous poid";
@@ -95,9 +92,9 @@ public class profil extends AppCompatActivity {
                 votreIMC = "Votre poid est normale";
             }
 
-            imc.setText(sendJSON.toString());
+            imc.setText(parseJSon.toString());
 
-            new SendDeviceDetails().execute("http://192.168.1.36/MVC/controller.php",sendJSON.toString());
+            new SendDeviceDetails().execute("http://192.168.1.36/MVC/controller.php",parseJSon.toString());
             Log.d("e","réussi");
         }catch (Exception e){
             imc.setText("Error : "+e);

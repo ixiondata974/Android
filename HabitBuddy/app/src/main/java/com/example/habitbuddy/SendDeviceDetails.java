@@ -23,7 +23,7 @@ public class SendDeviceDetails extends AsyncTask<String, Void, String> {
             httpURLConnection.setDoOutput(true);
 
             DataOutputStream wr = new DataOutputStream(httpURLConnection.getOutputStream());
-            wr.writeBytes("PostData=" + params[1]);
+            wr.writeBytes("unProfil=" + params[1]);
             wr.flush();
             wr.close();
 
