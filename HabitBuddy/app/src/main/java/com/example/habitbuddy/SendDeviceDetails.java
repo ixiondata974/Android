@@ -10,6 +10,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class SendDeviceDetails extends AsyncTask<String, Void, String> {
+
     @Override
     protected String doInBackground(String... params) {
         String data = "";
@@ -23,7 +24,7 @@ public class SendDeviceDetails extends AsyncTask<String, Void, String> {
             httpURLConnection.setDoOutput(true);
 
             DataOutputStream wr = new DataOutputStream(httpURLConnection.getOutputStream());
-            wr.writeBytes("unProfil=" + params[1]);
+            wr.writeBytes(params[2]+"=" + params[1]);
             wr.flush();
             wr.close();
 

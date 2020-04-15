@@ -23,11 +23,11 @@
         android:layout_height="252dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.163"
+        app:layout_constraintHorizontal_bias="0.155"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.469">
+        app:layout_constraintVertical_bias="0.521">
 
         <CheckBox
             android:id="@+id/marche"
@@ -74,7 +74,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/envoyer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Suivant"
@@ -120,5 +120,16 @@
             tools:layout_editor_absoluteY="65dp" />
 
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/test"
+        android:layout_width="134dp"
+        android:layout_height="99dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.862"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -44,7 +44,7 @@ public class profil extends AppCompatActivity {
                 }catch (Exception e){
                     imc.setText("Il n'a pas de valeur");
                 }
-                //versFormulaire();
+                versFormulaire();
             }
         });
     }
@@ -94,10 +94,10 @@ public class profil extends AppCompatActivity {
 
             imc.setText(parseJSon.toString());
 
-            new SendDeviceDetails().execute("http://192.168.1.36/MVC/controller.php",parseJSon.toString());
-            Log.d("e","réussi");
+            new SendDeviceDetails().execute("http://192.168.1.36/MVC/controller.php",parseJSon.toString(), "unProfil");
         }catch (Exception e){
             imc.setText("Error : "+e);
         }
     }
+
 }
