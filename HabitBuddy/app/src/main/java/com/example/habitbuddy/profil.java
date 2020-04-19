@@ -44,7 +44,6 @@ public class profil extends AppCompatActivity {
                 }catch (Exception e){
                     imc.setText("Il n'a pas de valeur");
                 }
-                versFormulaire();
             }
         });
     }
@@ -60,8 +59,7 @@ public class profil extends AppCompatActivity {
         }
     }
     private void versFormulaire(){
-        final Intent intent = new Intent(this, ListeDesActivites.class);
-        startActivity(intent);
+
     }
 
     private void calculeIMC(){
@@ -92,9 +90,13 @@ public class profil extends AppCompatActivity {
                 votreIMC = "Votre poid est normale";
             }
 
-            imc.setText(parseJSon.toString());
+            imc.setText(votreIMC);
 
             new SendDeviceDetails().execute("http://192.168.1.36/MVC/controller.php",parseJSon.toString(), "unProfil");
+
+            final Intent intent = new Intent(this, ListeDesActivites.class);
+            intent.putExtra("id","1");
+            startActivity(intent);
         }catch (Exception e){
             imc.setText("Error : "+e);
         }

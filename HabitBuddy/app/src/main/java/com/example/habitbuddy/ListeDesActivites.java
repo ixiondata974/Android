@@ -2,6 +2,7 @@ package com.example.habitbuddy;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -26,6 +27,9 @@ public class ListeDesActivites extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_liste_des_activites);
+
+        Intent in = getIntent();
+        final String val = in.getStringExtra("id");
 
         marche = (CheckBox)findViewById(R.id.marche);
         course = (CheckBox)findViewById(R.id.course);
