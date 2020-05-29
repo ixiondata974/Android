@@ -66,7 +66,7 @@ public class entretien extends AppCompatActivity {
         tot = (EditText)findViewById(R.id.total);
         quant = (EditText)findViewById(R.id.litre);
 
-        prix.addTextChangedListener(mText);
+        /*prix.addTextChangedListener(mText);
         tot.addTextChangedListener(mText);
         quant.addTextChangedListener(mText);
 
@@ -76,11 +76,15 @@ public class entretien extends AppCompatActivity {
             public void onClick(View v) {
                 startActivity(inten);
             }
-        });
+        });*/
         prendre_photo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                affiche_photo();
+                try{
+                    affiche_photo();
+                }catch (Exception e){
+                    prix.setText("Problème :"+e);
+                }
             }
         });
     }
@@ -94,12 +98,12 @@ public class entretien extends AppCompatActivity {
 
             image_analyse.setImageBitmap(image);
         }
-        get_textFrom_Image();
+        //get_textFrom_Image();
     }
 
     //Mes méthodes****************************************************************************
 
-    private TextWatcher mText = new TextWatcher() {
+    /*private TextWatcher mText = new TextWatcher() {
         @Override
         public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -113,12 +117,7 @@ public class entretien extends AppCompatActivity {
 
             envoy.setEnabled(!price.isEmpty() && !quanti.isEmpty() && !total.isEmpty());
         }
-
-        @Override
-        public void afterTextChanged(Editable s) {
-
-        }
-    };
+    };*/
 
     private void affiche_photo() {
         Intent in = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
@@ -134,9 +133,7 @@ public class entretien extends AppCompatActivity {
         }
     }
 
-    private void orientation(Bitmap ori){
-        Matrix mtrix = new Matrix();
-    }
+
 
     private void get_textFrom_Image(){
         Bitmap bit = ((BitmapDrawable) image_analyse.getDrawable()).getBitmap();
